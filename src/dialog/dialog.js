@@ -118,6 +118,7 @@ dialogModule.provider("$dialog", function(){
       this._loadResolves().then(function(locals) {
         var $scope = locals.$scope = self.$scope = locals.$scope ? locals.$scope : $rootScope.$new();
 
+        self.modalEl.css('display', 'block');
         self.modalEl.html(locals.$template);
 
         if (self.options.controller) {

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+  
+    AngularUI Tests
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet">
+
+<!-- Bootstrap 2.3 CSS
+<link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet"> -->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/js/html5shiv.js"></script>
+  <script src="/assets/js/respond.min.js"></script>
+<![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    
+    <script src="src/transition/transition.js"></script>
+    <script src="src/collapse/collapse.js"></script>
+    <script src="src/position/position.js"></script>
+    
+    <script src="src/accordion/accordion.js"></script>  <!-- Doesn't Collapse; Verify -->
+    
+    <script src="src/alert/alert.js"></script>          <!-- Works as expected 
+                                                             Demo Broken - Button needs btn-default -->
+    
+    <script src="src/buttons/buttons.js"></script>      <!-- Works as expected 
+                                                             Demo Functional -->
+    
+    <script src="src/carousel/carousel.js"></script>    <!-- Works as expected 
+                                                             Demo Broken - Need to use new row/col class names -->
+    
+    <script src="src/datepicker/datepicker.js"></script><!-- Template Broken - CSS changes require new template
+                                                             Demo Broken - Need to use new btn classes. -->
+    
+    <script src="src/dialog/dialog.js"></script>        <!-- Template Broken - Modal no longer requires a hide class
+                                                             Demo Broken - Need to use new btn classes. -->
+                                                             
+    <script src="src/dropdownToggle/dropdownToggle.js"></script>  <!-- Script Broken - Menu displays but nearly off screen in the lower left hand corner
+                                                                       Template working as expected
+                                                                       Demo Works as expected -->
+                                                                       
+    <script src="src/pagination/pagination.js"></script> <!-- Works as intended! -->
+    
+    <script src="src/tooltip/tooltip.js"></script> <!-- Demo buttons, inputs broken -->
+    
+    <script src="src/popover/popover.js"></script> <!-- Demo buttons, inputs broken -->
+                                                                       
+    <script src="src/modal/modal.js"></script> <!-- Working with commit, demo still broken -->
+
+    <body ng-app="DemoApp">
+    
+    <div class="container">
+    
+
+
+<div ng-controller="DialogDemoCtrl">
+    <div class="row">
+        <div class="col-lg-6">
+            <label class="checkbox"><input type=checkbox ng-model="opts.backdrop">Show backdrop</label>
+            <label class="checkbox"><input type=checkbox ng-model="opts.dialogFade">Fade modal dialog </label>
+            <label class="checkbox"><input type=checkbox ng-disabled="!opts.backdrop" ng-model="opts.backdropFade">Fade Backdrop</label>
+            <hr>
+            <label class="checkbox"><input type=checkbox ng-model="opts.keyboard">Close on Escape</label>
+            <label class="checkbox"><input type=checkbox ng-disabled="!opts.backdrop" ng-model="opts.backdropClick">Close on backdrop click</label>
+        </div>
+        <div class="col-lg-6">
+            <p>Change options at will and press the open dialog button below!</p>
+            <p><button class="btn btn-primary" ng-click="openDialog()">Open Dialog</button></p>
+
+            <p>Alternatively open a simple message box:</p>
+            <p><button class="btn btn-primary" ng-click="openMessageBox()">Open Message Box</button></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    </div>
+    
+    <script>
+        angular.module('DemoApp', ['ui.bootstrap.modal']);
+        
+function DialogDemoCtrl($scope, $dialog){
+
+  // Inlined template for demo
+  var t = '<div class="modal-dialog">'+
+          '<div class="modal-content">'+
+          '<div class="modal-header">'+
+          '<h3>This is the title</h3>'+
+          '</div>'+
+          '<div class="modal-body">'+
+          '<p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p>'+
+          '</div>'+
+          '<div class="modal-footer">'+
+          '<button ng-click="close(result)" class="btn btn-primary" >Close</button>'+
+          '</div></div></div>';
+
+  $scope.opts = {
+    backdrop: true,
+    keyboard: true,
+    backdropClick: true,
+    template:  t, // OR: templateUrl: 'path/to/view.html',
+    controller: 'TestDialogController'
+  };
+
+  $scope.openDialog = function(){
+    var d = $dialog.dialog($scope.opts);
+    d.open().then(function(result){
+      if(result)
+      {
+        alert('dialog closed with result: ' + result);
+      }
+    });
+  };
+
+  $scope.openMessageBox = function(){
+    var title = 'This is a message box';
+    var msg = 'This is the content of the message box';
+    var btns = [{result:'cancel', label: 'Cancel'}, {result:'ok', label: 'OK', cssClass: 'btn-primary'}];
+
+    $dialog.messageBox(title, msg, btns)
+      .open()
+      .then(function(result){
+        alert('dialog closed with result: ' + result);
+    });
+  };
+}
+
+// the dialog is injected in the specified controller
+function TestDialogController($scope, dialog){
+  $scope.close = function(result){
+    dialog.close(result);
+  };
+}
+
+
+
+    </script>
+    </body>
+</html>

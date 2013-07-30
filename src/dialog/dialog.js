@@ -120,6 +120,12 @@ dialogModule.provider("$dialog", function(){
 
         self.modalEl.css('display', 'block');
         self.modalEl.html(locals.$template);
+        
+        // fade in classes must both be present, if we don't fade, add them before they hit the dom
+        if (!self.options.backdropFade) {
+              self.backdropEl.addClass(self.options.transitionClass); 
+              self.backdropEl.addClass(self.options.triggerClass); 
+        }
 
         if (self.options.controller) {
           var ctrl = $controller(self.options.controller, locals);

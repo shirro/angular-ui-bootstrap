@@ -13,7 +13,8 @@
     <script src="assets/ui-select2.js"></script>
     <script src="assets/plunker.js"></script>
     <script src="assets/app.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/<%= bsversion %>/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/<%= bsversion %>/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/bootstrap-glyphicons.css"/>
     <link rel="stylesheet" href="assets/rainbow.css"/>
     <link rel="stylesheet" href="assets/demo.css"/>
     <link rel="stylesheet" href="assets/select2.css"/>
@@ -59,7 +60,7 @@
 <div style="margin: 32px;"></div>
 <div role="main">
 
-    <header class="hero-unit" id="overview">
+    <header class="jumbotron text-center" id="overview">
         <div class="container">
             <h1>
                 UI Bootstrap
@@ -69,9 +70,9 @@
                     href="http://angular-ui.github.io">AngularUI Team</a></strong></p>
 
             <p class="btn-group">
-                <a class="btn" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i> Code on Github</a>
+                <a class="btn btn-default" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i> Code on Github</a>
                 <a class="btn btn-primary" href="https://github.com/angular-ui/bootstrap/tree/gh-pages">
-                    <i class="icon-download-alt icon-white"></i> Download <small>(<%= pkg.version%>)</small>
+                    <i class="glyphicon glyphicon-download-alt icon-white"></i> Download <small>(<%= pkg.version%>)</small>
                 </a>
                 <a class="btn" ng-click="showBuildModal()"><i class="icon-wrench"></i> Create a Build</a>
             </p>
@@ -128,7 +129,7 @@
                 <h1>Getting started</h1>
             </div>
             <div class="row">
-                <div class="span12">
+                <div class="col-lg-12">
                     <h3>Dependencies</h3>
                     <p>
                         This repository contains a set of <strong>native AngularJS directives</strong> based on
@@ -168,16 +169,16 @@
           </small></h1>
         </div>
         <div class="row">
-            <div class="span6">
+            <div class="col-lg-6">
                 <%= module.docs.html %>
             </div>
-            <div class="span6">
+            <div class="col-lg-6">
                 <%= module.docs.md %>
             </div>
         </div>
         <hr>
         <div class="row">
-            <div class="span12" ng-controller="PlunkerCtrl">
+            <div class="col-lg-12" ng-controller="PlunkerCtrl">
                 <div class="pull-right">
                     <button class="btn btn-info" id="plunk-btn" ng-click="edit('<%= ngversion%>', '<%= bsversion %>', '<%= pkg.version%>', '<%= module.name %>')"><i class="icon-edit icon-white"></i> Edit in plunker</button>
                 </div>
@@ -229,8 +230,8 @@
     </div>
   </div>
   <div class="modal-footer">
-    <a class="btn btn-primary" ng-disabled="!selectedModules.length" ng-click="selectedModules.length && downloadBuild()"><i class="icon-download-alt icon-white"></i> Download {{selectedModules.length}} Modules</a>
-    <a class="btn" ng-click="buildModalShown = false">Cancel</a>
+    <a class="btn btn-primary" ng-disabled="!selectedModules.length" ng-click="selectedModules.length && downloadBuild()"><i class="glpyhicon glyphicon-download-alt glyphicon-white"></i> Download {{selectedModules.length}} Modules</a>
+    <a class="btn btn-default" ng-click="buildModalShown = false">Cancel</a>
   </div>
 </div>
 

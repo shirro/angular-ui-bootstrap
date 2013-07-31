@@ -14,7 +14,8 @@
     <script src="assets/plunker.js"></script>
     <script src="assets/app.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/<%= bsversion %>/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/bootstrap-glyphicons.css"/>
+    <!-- it will ignore fonts if we don't put it relative to ./fonts. this is an easy fix once the glyphicons are on a cdn -->
+    <link rel="stylesheet" href="assets/css/bootstrap-glyphicons.css"/>
     <link rel="stylesheet" href="assets/rainbow.css"/>
     <link rel="stylesheet" href="assets/demo.css"/>
     <link rel="stylesheet" href="assets/select2.css"/>
@@ -70,11 +71,11 @@
                     href="http://angular-ui.github.io">AngularUI Team</a></strong></p>
 
             <p class="btn-group">
-                <a class="btn btn-default" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i> Code on Github</a>
+                <a class="btn btn-default" href="https://github.com/angular-ui/bootstrap"><i class="glyphicon-github"></i> Code on Github</a>
                 <a class="btn btn-primary" href="https://github.com/angular-ui/bootstrap/tree/gh-pages">
                     <i class="glyphicon glyphicon-download-alt icon-white"></i> Download <small>(<%= pkg.version%>)</small>
                 </a>
-                <a class="btn" ng-click="showBuildModal()"><i class="icon-wrench"></i> Create a Build</a>
+                <a class="btn btn-default" ng-click="showBuildModal()"><i class="glyphicon-wrench"></i> Create a Build</a>
             </p>
         </div>
         <div class="bs-docs-social">

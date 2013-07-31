@@ -168,7 +168,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( (i === 0 && j === 4) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( (i === 0 && j === 4) );
       }
     }
   });
@@ -194,7 +194,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( (i === 0 && j === 5) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( (i === 0 && j === 5) );
       }
     }
   });
@@ -212,7 +212,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( (i === 1 && j === 1) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( (i === 1 && j === 1) );
       }
     }
   });

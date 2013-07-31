@@ -24,12 +24,11 @@
 </head>
 <body class="ng-cloak" ng-controller="MainCtrl">
 <header class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-    <div class="container">
-      <div class="dropdown pull-left">
-        <a class="brand dropdown-toggle" role="button" data-toggle="dropdown" href="#"> 
-          UI Bootstrap
-          <b class="caret"></b>
+  <div class="container">
+    <div class="dropdown pull-left">
+        <a class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" href="#">
+            UI Bootstrap
+            <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <li><a href="https://github.com/angular-ui/"><strong>Related Projects:</strong></a></li>
@@ -39,9 +38,9 @@
           <li><a href="https://github.com/angular-ui/AngularJs.tmbundle">AngularJS.tmbundle</a></li>
           <li><a href="https://github.com/angular-ui/ui-router">Router <span class="label label-success">New!</span></a></li>
         </ul>
-      </div>
-      <div class="nav-collapse">
-        <ul class="nav">
+    </div>
+    <div class="nav-collapse">
+        <ul class="nav navbar-nav" role="navigation">
            <li>
                <a href="#" role="button" class="dropdown-toggle">
                    Directives <b class="caret"></b>
@@ -55,10 +54,9 @@
            <li><a href="#getting_started">Getting started</a></li>
         </ul>
       </div>
-    </div>
   </div>
 </header>
-<div style="margin: 32px;"></div>
+<div style="margin: 40px;"></div>
 <div role="main">
 
     <header class="jumbotron text-center" id="overview">
@@ -71,14 +69,14 @@
                     href="http://angular-ui.github.io">AngularUI Team</a></strong></p>
 
             <p class="btn-group">
-                <a class="btn btn-default" href="https://github.com/angular-ui/bootstrap"><i class="glyphicon-github"></i> Code on Github</a>
+                <a class="btn btn-default" href="https://github.com/angular-ui/bootstrap"><i class="glyphicon icon-github"></i> Code on Github</a>
                 <a class="btn btn-primary" href="https://github.com/angular-ui/bootstrap/tree/gh-pages">
                     <i class="glyphicon glyphicon-download-alt icon-white"></i> Download <small>(<%= pkg.version%>)</small>
                 </a>
-                <a class="btn btn-default" ng-click="showBuildModal()"><i class="glyphicon-wrench"></i> Create a Build</a>
+                <a class="btn btn-default" ng-click="showBuildModal()"><i class="glyphicon glyphicon-wrench"></i> Create a Build</a>
             </p>
         </div>
-        <div class="panel panel-primary">
+        <div class="bs-docs-social">
             <div class="container">
                 <ul class="bs-docs-social-buttons">
                     <li>

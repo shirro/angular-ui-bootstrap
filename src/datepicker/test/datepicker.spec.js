@@ -123,14 +123,6 @@ describe('datepicker directive', function () {
     }
   });
 
-  it('`disables` visible dates from other months', function() {
-    for (var i = 0; i < 5; i ++) {
-      for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').find('span').hasClass('muted')).toBe( ((i === 0 && j < 3) || (i === 4 && j > 4)) );
-      }
-    }
-  });
-
   it('updates the model when a day is clicked', function() {
     var el = getOptionsEl(2, 3).find('button');
     el.click();

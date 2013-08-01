@@ -31,8 +31,8 @@ module.exports = function(grunt) {
     },
     delta: {
       docs: {
-        files: ['misc/demo/index.html'],
-        tasks: ['after-test']
+        files: ['misc/demo/index.html', 'src/**/*.html'],
+        tasks: ['before-test', 'after-test']
       },
       html: {
         files: ['template/**/*.html'],
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
       js: {
         files: ['src/**/*.js'],
         //we don't need to jshint here, it slows down everything else
-        tasks: ['karma:watch:run']
+        tasks: ['after-test', 'karma:watch:run']
       }
     },
     concat: {

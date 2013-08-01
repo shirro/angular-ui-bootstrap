@@ -1,7 +1,19 @@
 <div ng-controller="TooltipDemoCtrl">
   <div class="well">
-    <div>Dynamic Tooltip Text: <input type="text" ng-model="dynamicTooltipText"></div>
-    <div>Dynamic Tooltip Popup Text: <input type="text" ng-model="dynamicTooltip"></div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-lg-5 control-label">Dynamic Tooltip Text:</label>
+        <div class="col-lg-7">
+          <input type="text" class="form-control input-small" ng-model="dynamicTooltip">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-5 control-label">Dynamic Tooltip Popup Text:</label>
+        <div class="col-lg-7">
+          <input type="text" class="form-control input-small" ng-model="dynamicTooltipText">
+        </div>
+      </div>
+    </form>
     <p>
       Pellentesque <a><span tooltip="{{dynamicTooltip}}">{{dynamicTooltipText}}</span></a>,
       sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in
@@ -22,12 +34,16 @@
     <p>
       I can even contain HTML. <a><span tooltip-html-unsafe="{{htmlTooltip}}">Check me out!</span></a>
     </p>
-    <p>
-      Or use custom triggers, like focus: 
-      <input type="text" value="Click me!"
-        tooltip="See? Now click away..." 
-        tooltip-trigger="focus"
-        tooltip-placement="right" />
-    </p>
+    <div class="row">
+      <div class="col-lg-5">
+        Or use custom triggers, like focus: 
+      </div>
+      <div class="col-lg-3">
+        <input class="form-control input-small" type="text" value="Click me!"
+          tooltip="See? Now click away..." 
+          tooltip-trigger="focus"
+          tooltip-placement="right" />
+        </div>
+    </div>
   </div>
 </div>

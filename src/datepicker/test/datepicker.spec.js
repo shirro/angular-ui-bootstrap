@@ -11,25 +11,25 @@ describe('datepicker directive', function () {
   }));
 
   function getTitle() {
-    return element.find('th').eq(1).find('button').first().text();
+    return element.find('thead').eq(0).find('th').eq(1).find('button').children(0).text();
   }
 
   function clickTitleButton(times) {
-    var el = element.find('th').eq(1).find('button');
+    var el = element.find('thead').eq(0).find('th').eq(1).find('button');
     for (var i = 0, n = times || 1; i < n; i++) {
       el.click();
     }
   }
 
   function clickPreviousButton(times) {
-    var el = element.find('th').eq(0).find('button').eq(0);
+    var el = element.find('thead').eq(0).find('th').eq(0).find('button').eq(0);
     for (var i = 0, n = times || 1; i < n; i++) {
       el.click();
     }
   }
 
   function clickNextButton(times) {
-    var el = element.find('th').eq(2).find('button').eq(0);
+    var el = element.find('thead').eq(0).find('th').eq(2).find('button').eq(0);
 
     for (var i = 0, n = times || 1; i < n; i++) {
       el.click();
@@ -105,7 +105,7 @@ describe('datepicker directive', function () {
   it('has `selected` only the correct day', function() {
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( ( i === 4 && j === 4) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( ( i === 4 && j === 4) );
       }
     }
   });
@@ -118,15 +118,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( false );
-      }
-    }
-  });
-
-  it('`disables` visible dates from other months', function() {
-    for (var i = 0; i < 5; i ++) {
-      for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').find('span').hasClass('muted')).toBe( ((i === 0 && j < 3) || (i === 4 && j > 4)) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( false );
       }
     }
   });
@@ -176,7 +168,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( (i === 0 && j === 4) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( (i === 0 && j === 4) );
       }
     }
   });
@@ -202,7 +194,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( (i === 0 && j === 5) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( (i === 0 && j === 5) );
       }
     }
   });
@@ -220,7 +212,7 @@ describe('datepicker directive', function () {
 
     for (var i = 0; i < 5; i ++) {
       for (var j = 0; j < 7; j ++) {
-        expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( (i === 1 && j === 1) );
+        expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( (i === 1 && j === 1) );
       }
     }
   });
@@ -262,7 +254,7 @@ describe('datepicker directive', function () {
     it('has `selected` only the correct month', function() {
       for (var i = 0; i < 4; i ++) {
         for (var j = 0; j < 3; j ++) {
-          expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( ( i === 2 && j === 2) );
+          expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( ( i === 2 && j === 2) );
         }
       }
     });
@@ -341,7 +333,7 @@ describe('datepicker directive', function () {
     it('has `selected` only the selected year', function() {
       for (var i = 0; i < 4; i ++) {
         for (var j = 0; j < 5; j ++) {
-          expect(getOptionsEl(i, j).find('button').hasClass('btn-info')).toBe( ( i === 1 && j === 4) );
+          expect(getOptionsEl(i, j).find('button').hasClass('btn-primary')).toBe( ( i === 1 && j === 4) );
         }
       }
     });

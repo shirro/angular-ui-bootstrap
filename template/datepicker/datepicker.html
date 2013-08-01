@@ -1,4 +1,4 @@
-<table class="table-condensed panel">
+<table class="table-condensed">
   <thead>
     <tr class="text-center">
       <th><button class="btn btn-link btn-small pull-left" ng-click="move(-1)"><i class="glyphicon glyphicon-chevron-left"></i></button></th>
@@ -14,7 +14,7 @@
     <tr ng-repeat="row in rows">
       <td ng-show="showWeekNumbers" class="text-center"><button class="btn btn-warning btn-mini disabled"><em>{{ getWeekNumber(row) }}</em></button></td>
       <td ng-repeat="dt in row" class="text-center">
-        <button style="width:100%;" class="btn btn-mini {{ mouseoverClass }}" ng-class="{'btn-primary': dt.isSelected, 'disabled': dt.disabled}" ng-click="select(dt.date)" ng-disabled="dt.disabled" ng-mouseover="mouseoverClass = 'btn-info'" ng-mouseout="mouseoverClass = ''"><span ng-class="{'text-muted': !dt.isCurrent && !dt.isSelected && mouseoverClass != 'btn-info'}">{{dt.label}}</span></button>
+        <button style="width:100%;" class="btn btn-mini" ng-class="{'btn-primary': dt.isSelected, 'disabled': dt.disabled, 'btn-info': mouseoverClass, 'btn-link': !dt.isSelected && !dt.disabled && !mouseoverClass }" ng-click="select(dt.date)" ng-disabled="dt.disabled" ng-mouseover="mouseoverClass = true" ng-mouseout="mouseoverClass = false"><span ng-class="{'text-muted': !dt.isCurrent && !dt.isSelected && !mouseoverClass }">{{dt.label}}</span></button>
       </td>
     </tr>
   </tbody>

@@ -8,8 +8,9 @@
     </div>
   </div>
 
-
-   <div class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</div>
+  <hr />
+  <pre>Time is: {{mytime | date:'shortTime' }}</pre>
+  <hr />
 
   <div class="row"> 
     <div class="col-lg-6">
@@ -21,6 +22,8 @@
       <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
     </div>
   </div>
+
+  <hr />
 
   <button class="btn btn-default" ng-click="toggleMode()">12H / 24H</button>
   <button class="btn btn-default" ng-click="update()">Set to 14:00</button>

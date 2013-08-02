@@ -14,7 +14,7 @@
     <tr ng-repeat="row in rows">
       <td ng-show="showWeekNumbers" class="text-center" style="overflow: hidden"><button class="btn btn-warning btn-mini disabled"><em>{{ getWeekNumber(row) }}</em></button></td>
       <td ng-repeat="dt in row" class="text-center" style="overflow: hidden">
-        <button class="btn btn-mini" style="width: 26px" ng-class="{'btn-primary': dt.isSelected, 'disabled': dt.disabled, 'btn-info': mouseoverClass, 'btn-link': !dt.isSelected && !dt.disabled && !mouseoverClass }" ng-click="select(dt.date)" ng-disabled="dt.disabled" ng-mouseover="mouseoverClass = true" ng-mouseout="mouseoverClass = false"><div ng-class="{'text-muted': !dt.isCurrent && !dt.isSelected && !mouseoverClass }">{{dt.label}}</div></button>
+        <button class="btn btn-mini" style="width: 26px" ng-class="{'btn-primary': dt.isSelected, 'disabled': dt.disabled, 'btn-info': mouseoverClass && !dt.isSelected, 'btn-link': !dt.isSelected && !dt.disabled && !mouseoverClass }" ng-click="select(dt.date)" ng-disabled="dt.disabled" ng-mouseover="mouseoverClass = true" ng-mouseout="mouseoverClass = false"><div ng-class="{'text-muted': !dt.isCurrent && !dt.isSelected && !mouseoverClass }">{{dt.label}}</div></button>
       </td>
     </tr>
   </tbody>

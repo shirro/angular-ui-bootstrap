@@ -1,14 +1,16 @@
 <div ng-controller="CarouselDemoCtrl">
-  <carousel interval="myInterval">
-    <slide ng-repeat="slide in slides" active="slide.active">
-      <img ng-src="{{slide.image}}">
-      <div class="carousel-caption">
-        <h4>Slide {{$index + 1}}</h4>
-        <p>{{slide.text}}</p>
-      </div>
-    </slide>
-  </carousel>
-  <br>
+  <div class="panel" style="height: 315px;">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}">
+        <div class="carousel-caption">
+          <h4>Slide {{$index + 1}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  <hr />
   <div class="row">
     <div class="col-lg-12">
       <p>Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval"></p>

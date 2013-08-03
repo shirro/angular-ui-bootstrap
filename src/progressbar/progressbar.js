@@ -50,6 +50,7 @@ angular.module('ui.bootstrap.progressbar', ['ui.bootstrap.transition'])
         controller: 'ProgressBarController',
         scope: {
             value: '=percent',
+            type: '@',
             onFull: '&',
             onEmpty: '&'
         },
@@ -57,6 +58,9 @@ angular.module('ui.bootstrap.progressbar', ['ui.bootstrap.transition'])
         link: function(scope, element, attrs, controller) {
             scope.$watch('value', function(newValue, oldValue) {
                 controller.clearBars();
+
+                // if there is a type and newValue is a number, create an object and make it a type
+                newValue = angular.isNumber(newValue) && angular.isDefined(attrs.type) ? { value: newValue, type: attrs.type } : newValue;
 
                 if (angular.isArray(newValue)) {
                     // Stacked progress bar

@@ -3,6 +3,7 @@ describe('progressbar directive with no binding', function () {
   beforeEach(module('ui.bootstrap.progressbar'));
   beforeEach(module('template/progressbar/progress.html', 'template/progressbar/bar.html'));
   beforeEach(inject(function(_$compile_, _$rootScope_) {
+    $attrs = {};
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     element = $compile('<progress percent="22" animate="false"></progress>')($rootScope);
@@ -20,6 +21,13 @@ describe('progressbar directive with no binding', function () {
 
   it('has a "bar" element with expected width', function() {
     expect(element.children().eq(0).css('width')).toBe('22%');
+  });
+
+  it('handles "type" attribute', function() {
+    element = $compile('<progress percent="22" animate="false" type="success"></progress>')($rootScope);
+    $rootScope.$digest();
+
+    expect(element.children().eq(0).hasClass('progress-bar-success')).toBe(true);
   });
 });
 
@@ -80,6 +88,12 @@ describe('progressbar directive with data-binding', function () {
     expect(barElement.hasClass('progress-bar-warning')).toBe(true);
   });
 
+  it('handles "type" attribute', function() {
+    element = $compile('<progress percent="percent" animate="false" type="success"></progress>')($rootScope);
+    $rootScope.$digest();
+
+    expect(element.children().eq(0).hasClass('progress-bar-success')).toBe(true);
+  });
 });
 
 describe('stacked progressbar directive', function () {
@@ -191,6 +205,13 @@ describe('stacked progressbar directive', function () {
     barElement = element.children().eq(4);
     expect(barElement.css('width')).toBe('5%');
     expect(barElement.hasClass('progress-bar-warning')).toBe(false);
+  });
+
+  it('ignores "type" attribute', function() {
+    element = $compile('<progress percent="stacked" animate="false" type="success"></progress>')($rootScope);
+    $rootScope.$digest();
+
+    expect(element.children().eq(0).hasClass('progress-bar-success')).toBe(false);
   });
 
 });

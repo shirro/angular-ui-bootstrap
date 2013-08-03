@@ -2,16 +2,16 @@
     <h2>Static</h2>
     <div class="row">
         <div class="col-lg-4"><progress percent="55"></progress></div>
-        <div class="col-lg-4"><progress percent="22" class="progress-bar-warning progress-striped"></progress></div>
-        <div class="col-lg-4"><progress percent="88" class="progress-bar-danger progress-striped active"></div>
+        <div class="col-lg-4"><progress percent="22" class="progress-striped" type="warning"></progress></div>
+        <div class="col-lg-4"><progress percent="88" class="progress-striped active" type="danger"></div>
     </div>
     
     <h2>Dynamic <button class="btn btn-primary" type="button" ng-click="random()">Randomize</button></h2>
     <pre>Value: {{dynamic}}</pre>
-    <progress percent="dynamic"></progress>
+    <progress percent="dynamic" type="info"></progress>
     
     <small><em>No animation</em></small>
-    <progress percent="dynamic" class="progress-success" animate="false"></progress>
+    <progress percent="dynamic" animate="false" type="success"></progress>
 
     <small><em>Object (changes type based on value)</em></small>
     <progress percent="dynamicObject" class="progress-striped active"></progress>

@@ -1,0 +1,10 @@
+<form class="form-inline" name="editable_form" style="margin-bottom: 0; display: inline-block" ng-submit="submitForm()">
+	<div class="control-group" style="margin-bottom: 0" ng-class="{error: editable_form.$invalid }">
+		<label class="radio inline" ng-repeat="values in source()">
+			<input type="radio" ng-model="$parent.model" value="{{ $parent.source()[$index][opts.checkedValue] || $parent.source()[$index] }}"> {{ $parent.source()[$index][opts.checkedLabel] || $parent.source()[$index] }}
+		</label>
+        <button class="btn btn-mini btn-primary" ng-click="submitForm()">
+            <i class="icon-ok icon-white"></i>
+        </button>
+   </div>
+</form>

@@ -1,0 +1,15 @@
+<form class="form-inline" name="editable_form" style="margin-bottom: 0; display: inline-block" ng-submit="submitForm()">
+    <div class="control-group" style="margin-bottom: 0" ng-class="{error: editable_form.$invalid }">
+        <div class="row-fluid">
+            <div class="input-append span12">
+                <input class="editable-validator span10" name="editable_field">
+                <button class="btn btn-danger disabled" tooltip="{{ errors }}" ng-hide="editable_form.$valid">
+                    <i class="icon-remove icon-white"></i>
+                </button>
+                <button class="btn btn-primary" ng-show="editable_form.$valid" ng-click="submitForm()">
+                    <i class="icon-ok icon-white"></i>
+                </button>
+            </div>
+        </div>
+   </div>
+</form>

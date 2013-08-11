@@ -1,0 +1,46 @@
+<div ng-controller="EditableDemoCtrl">
+	<div class="row-fluid">
+		<div class="span4 alert">
+	    	Required: 
+	    </div>
+	    <div class="span8 alert alert-info">
+<a href="" ng-model="$parent.color" type="text" editable required>{{ $parent.color }}</a>
+	    </div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4 alert">
+	    	Empty Value: 
+	    </div>
+	    <div class="span8 alert alert-info">
+<a href="" ng-model="$parent.empty" type="text" editable>{{ $parent.empty }}
+<span ng-show="$parent.empty == ''"><em>Empty</em></span></a>
+	    </div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4 alert">
+	    	Progmatic:
+	    </div>
+	    <div class="span5 alert alert-info">
+<a href="" ng-model="$parent.progmaticColor" type="text" editable-active="state" editable required>{{ $parent.progmaticColor }}</a>
+	    </div>
+	    <div class="span3">
+	    	<button class="btn btn-mini" ng-click="state = !state">Active: {{ state }}</button>
+	    </div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4 alert">
+	    	Select Array:
+	    </div>
+	    <div class="span8 alert alert-info">
+<a href="" ng-model="$parent.color" source="colorArray" type="select" source-options="value for value in source()" editable>{{ $parent.color }}</a>
+	    </div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4 alert">
+	    	Radio Object:
+	    </div>
+	    <div class="span8 alert alert-info">
+<a href="" ng-model="$parent.color" source="colorObjectDefaults" type="radio" editable>{{ $parent.color }}</a>
+	    </div>
+	</div>
+</div>

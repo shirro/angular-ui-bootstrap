@@ -285,7 +285,7 @@ describe('Given ui.bootstrap.dialog', function(){
 		});
 
 		it('should use the specified template', function(){
-			expect($document.find('body > div.modal > div.modal-header').length).toBe(1);
+			expect($document.find('body > div.modal > div.modal-dialog > div.modal-content > div.modal-header').length).toBe(1);
 		});
 	});
 

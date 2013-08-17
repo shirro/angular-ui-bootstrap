@@ -5,9 +5,9 @@
     <pagination boundary-links="true" num-pages="noOfPages" current-page="currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
     <pagination direction-links="false" boundary-links="true" num-pages="noOfPages" current-page="currentPage"></pagination>
     <pagination direction-links="false" num-pages="noOfPages" current-page="currentPage"></pagination>
-
-    <button class="btn" ng-click="setPage(3)">Set current page to: 3</button>
-    The selected page no: {{currentPage}}
+    <div><button class="btn btn-info" ng-click="setPage(3)">Set current page to: 3</button></div>
+    <hr />
+    <pre>The selected page no: {{currentPage}}</pre>
 
     <hr />
     <h4>Pager</h4>
